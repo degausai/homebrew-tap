@@ -11,7 +11,7 @@ class Wonda < Formula
   on_macos do
     if Hardware::CPU.intel?
       url "https://github.com/degausai/wonda/releases/download/v0.7.0/wonda_0.7.0_darwin_amd64.tar.gz"
-      sha256 "24b54aeeebb23f8d41cef5d3fc1ea5935368ff9a62af38b72fcbc91bbb93357d"
+      sha256 "6f3407521d0c4ea4d203835952198bd6776df2a63bc3c1dbc3100f04dd2471bc"
 
       define_method(:install) do
         bin.install "wonda"
@@ -19,7 +19,7 @@ class Wonda < Formula
     end
     if Hardware::CPU.arm?
       url "https://github.com/degausai/wonda/releases/download/v0.7.0/wonda_0.7.0_darwin_arm64.tar.gz"
-      sha256 "cf66dfb750463b498212e4bc0c85415e3777a2a46ba25ceed9a44733abb892de"
+      sha256 "5d394f9234df09eb763fcbd68b73e47e4ae2680c0e4315b90cd8d07a22b23be1"
 
       define_method(:install) do
         bin.install "wonda"
@@ -30,14 +30,14 @@ class Wonda < Formula
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
       url "https://github.com/degausai/wonda/releases/download/v0.7.0/wonda_0.7.0_linux_amd64.tar.gz"
-      sha256 "31bd459ea80946b3e463097c2ae06087543aa70826c691f124c02ba1d04f333b"
+      sha256 "a8167869bec60e1a2f8631c6febb436630b82e1872a8b0fa2160a75c199bd931"
       define_method(:install) do
         bin.install "wonda"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
       url "https://github.com/degausai/wonda/releases/download/v0.7.0/wonda_0.7.0_linux_arm64.tar.gz"
-      sha256 "0b80b55886e528db34a366e07864b7df9cc0b88d32b49e006ef9150005712a85"
+      sha256 "7a99e3fdbf3b91272146662114d1c82fcad07b444f0864fef87fd9e9a68cb175"
       define_method(:install) do
         bin.install "wonda"
       end
