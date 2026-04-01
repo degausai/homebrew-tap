@@ -5,21 +5,21 @@
 class Wonda < Formula
   desc "AI-powered content generation CLI"
   homepage "https://wonda.sh"
-  version "1.4.0"
+  version "1.5.0"
   license "Proprietary"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/degausai/wonda/releases/download/v1.4.0/wonda_1.4.0_darwin_amd64.tar.gz"
-      sha256 "a7f5b5a198bada1c0921ea710d094f8193ef8be4b72c7b2df4bbd88f2d109012"
+      url "https://github.com/degausai/wonda/releases/download/v1.5.0/wonda_1.5.0_darwin_amd64.tar.gz"
+      sha256 "3e449aedafd79a4030dec6642ce2af4879f7ebd01eb8460cc4604247ee541ef1"
 
       define_method(:install) do
         bin.install "wonda"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/degausai/wonda/releases/download/v1.4.0/wonda_1.4.0_darwin_arm64.tar.gz"
-      sha256 "28b0500ef7348c0416bbe6dd0ad4579614781ac41b4be285c8ef2a213bdffea3"
+      url "https://github.com/degausai/wonda/releases/download/v1.5.0/wonda_1.5.0_darwin_arm64.tar.gz"
+      sha256 "b5e3edb7a41961e91c3589973a0324f6e93758fadf83f8a246149ef9cb001ab6"
 
       define_method(:install) do
         bin.install "wonda"
@@ -29,15 +29,15 @@ class Wonda < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/degausai/wonda/releases/download/v1.4.0/wonda_1.4.0_linux_amd64.tar.gz"
-      sha256 "8d6f96839dc6ac95030ad1b21d836d452db4891002a1b6fb21f2a0f4f0a367b3"
+      url "https://github.com/degausai/wonda/releases/download/v1.5.0/wonda_1.5.0_linux_amd64.tar.gz"
+      sha256 "1eb6963d0ef08a30a25d328c58011c976321ded4469130850a93726c2e6ccc8f"
       define_method(:install) do
         bin.install "wonda"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/degausai/wonda/releases/download/v1.4.0/wonda_1.4.0_linux_arm64.tar.gz"
-      sha256 "acb6a4f8cf053cbe9f73aadb5e73ac9d29d8c32faddc85cdd82d63ac4805cdc5"
+      url "https://github.com/degausai/wonda/releases/download/v1.5.0/wonda_1.5.0_linux_arm64.tar.gz"
+      sha256 "79afea61e8f719ef938c8f83252f5817697b0048afa6abb7d6f025c1bdcd61d4"
       define_method(:install) do
         bin.install "wonda"
       end
