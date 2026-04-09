@@ -5,21 +5,21 @@
 class Wonda < Formula
   desc "AI-powered content generation CLI"
   homepage "https://wonda.sh"
-  version "1.7.1"
+  version "1.8.0"
   license "Proprietary"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/degausai/wonda/releases/download/v1.7.1/wonda_1.7.1_darwin_amd64.tar.gz"
-      sha256 "210e46df4ef4dc497d50edcb6f773c2fad08d93c94ca470d611ee24a1d987490"
+      url "https://github.com/degausai/wonda/releases/download/v1.8.0/wonda_1.8.0_darwin_amd64.tar.gz"
+      sha256 "f1522e125628ab0290aeecb183274c7db27b353ca7335bb51233a5ea770aab0d"
 
       define_method(:install) do
         bin.install "wonda"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/degausai/wonda/releases/download/v1.7.1/wonda_1.7.1_darwin_arm64.tar.gz"
-      sha256 "de5eec72df53c73e27ae24f6185f747f783e7e5e4ecf8e871d2222c74aee1019"
+      url "https://github.com/degausai/wonda/releases/download/v1.8.0/wonda_1.8.0_darwin_arm64.tar.gz"
+      sha256 "c2f1b6d211b8c5cba23b82ebbe1d1672c3edb3695487c58bf7d1198e264c1581"
 
       define_method(:install) do
         bin.install "wonda"
@@ -29,19 +29,39 @@ class Wonda < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/degausai/wonda/releases/download/v1.7.1/wonda_1.7.1_linux_amd64.tar.gz"
-      sha256 "a689bf3be165da1dd87f79a58e081bff583b573f189bfa7b051a99962939644b"
+      url "https://github.com/degausai/wonda/releases/download/v1.8.0/wonda_1.8.0_linux_amd64.tar.gz"
+      sha256 "1b41c83832f19ff1a8ea07432847d7dfcfad91f9781491143c64b4f5960c0b35"
       define_method(:install) do
         bin.install "wonda"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/degausai/wonda/releases/download/v1.7.1/wonda_1.7.1_linux_arm64.tar.gz"
-      sha256 "b065796c51dcaeccf5bcb5129544ad0ff0a667c7c008c309a82064801c485a41"
+      url "https://github.com/degausai/wonda/releases/download/v1.8.0/wonda_1.8.0_linux_arm64.tar.gz"
+      sha256 "c5401ff14654eccc4efec586cc71ad0631c2ff6079713767678554adde53bf61"
       define_method(:install) do
         bin.install "wonda"
       end
     end
+  end
+
+  def post_install
+    wonda_bin = Pathname.new(Dir.home)/".wonda"/"bin"/"wonda"
+    if wonda_bin.exist?
+      opoo "Found a previous shell-installed wonda at #{wonda_bin} — removing it"
+      wonda_bin.unlink
+      opoo "Your shell config may still have a PATH entry for ~/.wonda/bin."
+      opoo "Remove the '# wonda' block from your shell config to avoid conflicts."
+    end
+  end
+
+  def caveats
+    <<~EOS
+      If you previously installed wonda via the shell installer or npm,
+      the Homebrew version may conflict. Remove other installs:
+
+        rm -rf ~/.wonda/bin/wonda
+        npm uninstall -g @degausai/wonda
+    EOS
   end
 
   test do
