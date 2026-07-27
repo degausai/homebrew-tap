@@ -5,23 +5,23 @@
 class Wonda < Formula
   desc "AI-powered content generation CLI"
   homepage "https://wonda.sh"
-  version "1.54.0"
+  version "1.55.0"
   license "Proprietary"
 
   depends_on "node"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/degausai/wonda/releases/download/v1.54.0/wonda_1.54.0_darwin_amd64.tar.gz"
-      sha256 "4a44ed6472be29f2ade672ef6d37440fe781b8487553a905ce2402874b7d9ae0"
+      url "https://github.com/degausai/wonda/releases/download/v1.55.0/wonda_1.55.0_darwin_amd64.tar.gz"
+      sha256 "2b8f39407ec81394ba590293d5dc643cb071392be9d45c8aba696a711af86379"
 
       define_method(:install) do
         bin.install "wonda"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/degausai/wonda/releases/download/v1.54.0/wonda_1.54.0_darwin_arm64.tar.gz"
-      sha256 "aa89385ae2433d086771b25d416b2f3b1f49bca47b1efd9595f684384d3b43f3"
+      url "https://github.com/degausai/wonda/releases/download/v1.55.0/wonda_1.55.0_darwin_arm64.tar.gz"
+      sha256 "93916479f443971bac6ecf9820789f28c668b140ec2e8df40063d7719d51126a"
 
       define_method(:install) do
         bin.install "wonda"
@@ -31,15 +31,15 @@ class Wonda < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/degausai/wonda/releases/download/v1.54.0/wonda_1.54.0_linux_amd64.tar.gz"
-      sha256 "26c2f4bc2344da5d2aa82c05368ab4b02e1d57d0ba42a71e31c20e390fcb88f9"
+      url "https://github.com/degausai/wonda/releases/download/v1.55.0/wonda_1.55.0_linux_amd64.tar.gz"
+      sha256 "0116844357bfadba77689428a48d09625542c2b465a2ecb68d96985fcfd47b1f"
       define_method(:install) do
         bin.install "wonda"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/degausai/wonda/releases/download/v1.54.0/wonda_1.54.0_linux_arm64.tar.gz"
-      sha256 "40ff2bb0969bca2d3f7f3e647c22cbe033ed7dcf29daba765424afeafc1da5ab"
+      url "https://github.com/degausai/wonda/releases/download/v1.55.0/wonda_1.55.0_linux_arm64.tar.gz"
+      sha256 "3a8ca7e952d2310db52a70bc1af279053da29cdadea4e79c00739472f387b5ff"
       define_method(:install) do
         bin.install "wonda"
       end
@@ -59,10 +59,20 @@ class Wonda < Formula
   def caveats
     <<~EOS
       If you previously installed wonda via the shell installer or npm,
-      the Homebrew version may conflict. Remove other installs:
+      remove it first so the Homebrew binary is the wonda on your PATH:
 
         rm -rf ~/.wonda/bin/wonda
         npm uninstall -g @degausai/wonda
+
+      Then, on macOS or Windows, you can run wonda as an always-on
+      background relay (starts at login, keeps itself running) by enabling it
+      once (not applicable on Linux):
+
+        wonda relay install
+
+      Turn it off any time with:
+
+        wonda relay uninstall
     EOS
   end
 
