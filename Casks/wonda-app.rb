@@ -1,6 +1,6 @@
 cask "wonda-app" do
-  version "1.59.0"
-  sha256 "b85fe553ff0bf3e9822304cb8833efdb29d7ec47874b8e237df8fb6b2f516fb3"
+  version "1.60.0"
+  sha256 "392f2a829506e469df8969f3cfd11efcea38505eabe5e93426e4378c7e417aa2"
 
   url "https://github.com/degausai/wonda/releases/download/v#{version}/wonda-macos.pkg"
   name "Wonda"
