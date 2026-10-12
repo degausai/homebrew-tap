@@ -5,23 +5,23 @@
 class Wonda < Formula
   desc "AI-powered content generation CLI"
   homepage "https://wonda.sh"
-  version "1.68.0"
+  version "1.69.0"
   license "Proprietary"
 
   depends_on "node"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/degausai/wonda/releases/download/v1.68.0/wonda_1.68.0_darwin_amd64.tar.gz"
-      sha256 "affc63d22a008ac5e8be7aa8849666ea1ca0ec305f6458784418219bbd266c6d"
+      url "https://github.com/degausai/wonda/releases/download/v1.69.0/wonda_1.69.0_darwin_amd64.tar.gz"
+      sha256 "7b46ab6dac4b9bdfe3cb174fc922db25790977a22eec5b735c5b111f06356096"
 
       define_method(:install) do
         bin.install "wonda"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/degausai/wonda/releases/download/v1.68.0/wonda_1.68.0_darwin_arm64.tar.gz"
-      sha256 "7a4c41ef5a32c7c614625c1c1cfaae54320c7d82090871926b027b6cd57cff7f"
+      url "https://github.com/degausai/wonda/releases/download/v1.69.0/wonda_1.69.0_darwin_arm64.tar.gz"
+      sha256 "fb3ab6444749482c272867b78ae186c50a2e785ff04fb9d5a67449464816cfba"
 
       define_method(:install) do
         bin.install "wonda"
@@ -31,15 +31,15 @@ class Wonda < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/degausai/wonda/releases/download/v1.68.0/wonda_1.68.0_linux_amd64.tar.gz"
-      sha256 "8d35811f021b7fd10f81aff03d72ab4f2f86efda17b82201a0b7fbe31436248e"
+      url "https://github.com/degausai/wonda/releases/download/v1.69.0/wonda_1.69.0_linux_amd64.tar.gz"
+      sha256 "8f77e9d74a2bd3c0e2256f673edf9d14f72467bfeb9e2eaa13ebb195b3731c9d"
       define_method(:install) do
         bin.install "wonda"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/degausai/wonda/releases/download/v1.68.0/wonda_1.68.0_linux_arm64.tar.gz"
-      sha256 "280e9599c2f9740a4f80f458c61c863b05c6cd8f3b969a4036c0e6bb99c2fcb4"
+      url "https://github.com/degausai/wonda/releases/download/v1.69.0/wonda_1.69.0_linux_arm64.tar.gz"
+      sha256 "c846e099622ace0e0cb944a709689c1855696dbb98033e45e82b4d4424104c28"
       define_method(:install) do
         bin.install "wonda"
       end
